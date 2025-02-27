@@ -1,0 +1,30 @@
+.specialization-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start; /* Убираем центрирование */
+    padding: 0;
+}
+
+.specialization-card {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 10px 15px;
+    text-align: center;
+    min-width: 120px;
+    transition: all 0.3s ease-in-out;
+}
+
+.specialization-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 10px rgba(30, 144, 255, 0.8); /* 🔵 Синее свечение */
+    cursor: pointer;
+}
+
+.specialization-card.active {
+    border: 2px solid #1e90ff; /* 🔵 Синий цвет */
+    box-shadow: 0px 0px 12px rgba(30, 144, 255, 0.9); /* 🔵 Глубокое синее свечение */
+    background: rgba(30, 144, 255, 0.2);
+}

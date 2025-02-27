@@ -1,0 +1,176 @@
+/* Общие стили */
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    height: 92vh;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    width: 100vw;
+}
+
+/* Солнечная система */
+.solar-system {
+    overflow: hidden;
+    font-size: 6px;
+    width: 50vw;
+    position: relative;
+    justify-content: end;
+}
+
+img {
+    height: 130%;
+    width: 130%;
+}
+
+/* Солнце */
+.sun {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 45em;
+    left: 45em;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    box-shadow: 0 0 3em rgb(255, 128, 0);
+    animation: orbit 50s linear infinite;
+}
+
+/* Планеты */
+.mercury, .venus, .earth, .mars, .jupiter, .saturn, .uranus, .neptune, .pluto {
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+
+/* Позиции планет и их орбиты */
+.mercury { top: 42.5em; left: 42.5em; width: 15em; height: 15em; animation: orbit 68.7s linear infinite; }
+.venus { top: 40em; left: 40em; width: 20em; height: 20em; animation: orbit 48.7s linear infinite; }
+.earth { top: 36em; left: 36em; width: 28em; height: 28em; animation: orbit 36.5s linear infinite; }
+.mars { top: 32em; left: 32.5em; width: 36em; height: 36em; animation: orbit 26.5s linear infinite; }
+.jupiter { top: 28em; left: 28em; width: 45em; height: 45em; animation: orbit 21s linear infinite; }
+.saturn { top: 23em; left: 23em; width: 55em; height: 55em; animation: orbit 17s linear infinite; }
+.uranus { top: 18em; left: 18em; width: 65em; height: 65em; animation: orbit 19s linear infinite; }
+.neptune { top: 13em; left: 13em; width: 75em; height: 75em; animation: orbit 15s linear infinite; }
+.pluto { top: 8em; left: 8em; width: 85em; height: 85em; animation: orbit 18s linear infinite; }
+
+
+.mercury::before, .venus::before, .earth::before, .mars::before, .jupiter::before,
+.saturn::before, .uranus::before, .neptune::before, .pluto::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-size: cover;
+    animation: orbit 30s linear infinite;
+}
+
+/* Изображения планет */
+.mercury::before { top: 1.5em; right: 0.8em; width: 2em; height: 2em; background-image: url('./images/mercury.png'); }
+.venus::before { top: 2em; right: 2em; width: 2em; height: 2em; background-image: url('./images/venus.png'); }
+.earth::before { top: 3em; right: 0em; width: 5em; height: 5em; background-image: url('./images/earth.png'); }
+.mars::before { top: 5em; right: 3em; width: 3em; height: 3em; background-image: url('./images/mars.png'); }
+.jupiter::before { top: 6em; right: 3em; width: 5em; height: 5em; background-image: url('./images/jupiter.png'); }
+.saturn::before { top: 7.5em; right: 5em; width: 4.5em; height: 4.5em; background-image: url('./images/saturn.png'); }
+.uranus::before { top: 9em; right: 6.5em; width: 4em; height: 4em; background-image: url('./images/uranus.png'); }
+.neptune::before { top: 10em; right: 8em; width: 4em; height: 4em; background-image: url('./images/neptune.png'); }
+.pluto::before { top: 11em; right: 10em; width: 4em; height: 4em; background-image: url('./images/pluto.png'); }
+
+/* Звёзды */
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    z-index: 0;
+    opacity: 0.8;
+    animation: twinkle 3s infinite alternate ease-in-out;
+}
+
+/* Анимация мерцания звёзд */
+@keyframes twinkle {
+    0% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.6); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Анимация орбиты */
+@keyframes orbit {
+    to { transform: rotate(360deg); }
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.1); filter: brightness(1.5); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* Информационная панель */
+.info-panel {
+    align-self: center;
+    justify-self: center;
+    margin-bottom: 16vh;
+}
+
+/* Заголовок */
+.info-panel h1 {
+    background-color: black;
+    justify-self: center;
+    align-self: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: rgba(245, 95, 120);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: slideIn 1.5s ease-out;
+    z-index: 1;
+}
+
+/* Слоган */
+.slogan {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.5;
+    color: #c0c0c0;
+    animation: fadeIn 3s ease-in-out;
+}
+
+/* Кнопка */
+.cta-button {
+    background-color: #f64663;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgb(245, 55, 86);
+    margin-left: 220px;
+
+}
+
+.cta-button:hover {
+    background-color: #0f3460;
+    transform: scale(1.1);
+}
+
+/* Анимации заголовка и текста */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
